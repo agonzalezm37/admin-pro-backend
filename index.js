@@ -11,6 +11,11 @@ const app = express();
 // Configurar CORS
 app.use(cors());
 
+// Lectura y parseo del body
+
+app.use(express.json());
+
+
 
 // Base de datos
 
@@ -25,6 +30,10 @@ app.get('/', (req, res) => {
         msg: 'Hola mundo'
     })
 });
+
+app.use('/api/usuarios', require('./routes/usuarios'));
+app.use('/api/login', require('./routes/auth'));
+
 
 
 
